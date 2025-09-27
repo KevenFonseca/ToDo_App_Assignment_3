@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "A simple and intuitive To-Do application designed to help you organize tasks effectively. Each task can be managed in three states: pending, completed, or deleted. The app provides a clean user interface where you can view your task list, create new tasks, and update their status with ease. It’s suitable for anyone looking to stay organized and manage their daily tasks efficiently.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Keven Fonseca",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10"
+  }
+}
