@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require('./config/configdb')
+const taskRoute = require('./routes/task.router')
 require('dotenv').config()
 
 const app = express()
@@ -12,8 +13,20 @@ connectDB()
 app.use(express.json())
 app.use(express.static('public'))
 
+// Routes
+app.use('/v1/task', taskRoute)
+
+// Home Route
 app.get('/', (req, res) => {
-    res.send('Hello Fellows')
+    res.send('Hello ToDo APP')
+})
+
+//Error handler middleware
+app.use((err, req, res, next) => {
+    console.log(err)
+    const errorStatus = err.status || 500
+    res.status(errorStatus).send(err.message)
+    next()
 })
 
 app.listen(PORT, () => {
