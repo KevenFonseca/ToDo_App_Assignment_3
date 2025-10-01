@@ -1,20 +1,23 @@
 const express = require('express')
 const connectDB = require('./config/configdb')
 const taskRoute = require('./routes/task.router')
+const authRoute = require('./routes/auth.router')
+const authenticateToken = require('./authorization/auth.middleware')
 require('dotenv').config()
 
 const app = express()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 // Connect to MongoDB
 connectDB()
 
 // Midleware
 app.use(express.json())
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 // Routes
-app.use('/v1/task', taskRoute)
+app.use('/auth', authRoute)
+app.use('/v1/task', authenticateToken, taskRoute)
 
 // Home Route
 app.get('/', (req, res) => {
@@ -26,7 +29,6 @@ app.use((err, req, res, next) => {
     console.log(err)
     const errorStatus = err.status || 500
     res.status(errorStatus).send(err.message)
-    next()
 })
 
 app.listen(PORT, () => {

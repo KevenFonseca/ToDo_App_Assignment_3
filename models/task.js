@@ -15,17 +15,9 @@ const taskSchema = new Schema({
         enum: ['pending', 'completed', 'deleted'],
         default: 'pending'
     },
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now()
-    },
     user_id: {
         type: Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
         required: true
     }
 }, {timestamps: true})
