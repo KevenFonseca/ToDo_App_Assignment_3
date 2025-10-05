@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+.navbar {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1F2E49;
+}
+
+.navbar-title {
+    color: #fff;
+}
+
+.ionicon {
+    width: 4rem;
+    height: auto;
+    color: #fff;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.title {
+    margin-top: 4rem;
+}
+
+.create-form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-field {
+    padding: 1.2rem 1.2rem;
+    font-size: 2rem;
+    border-radius: 10px;
+    border: 2px solid #b3b7bb;
+    outline: none;
+    font-family: "Inter", sans-serif;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #5BA4E0;
+    border: 2px solid #5BA4E0;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.task-container {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.task-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.task-card {
+    padding: 1rem;
+    border: 2px solid #5BA4E0; 
+    border-radius: 8px;
+}
+
+.error {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.task-card-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    padding: 1rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.edit-btn {
+    color: #fff;
+    background-color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+.del-btn {
+    color: #dc3545;
+    background-color: #fff;
+    border: 2px solid #dc3545;
+}
+
+/* Edit-Modal Style */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 20% 5%;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.edit-title {
+    margin: 1rem 0;
+}
+
+.edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.select-status {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: #5BA4E0;
+    background-color: #fff;
+    border: 2px solid #5BA4E0;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    outline: none;
+}
+
+@media screen and (min-width: 768px) {
+    .main-container {
+        width: 60%;
+        margin: 0 auto;
+        padding: 6rem;
+        gap: 2rem;
+    }
+}

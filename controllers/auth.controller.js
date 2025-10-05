@@ -8,16 +8,17 @@ async function signup(req, res){
         // Simple valiation
         const {userName, email, password} = req.body
         if (!userName || !email || !password) return res.status(400).send({error: 'All fields are required'})
-        
+
         // Check if the email exist
         const exist = await userModel.findOne({email})
         if (exist) return res.status(409).send({error: 'Email already registered'})
-        
-        const user = await userModel.create(req.body)
-        res.status(201).send({message: 'User created successfully', user: { userName: user.userName, id: user._id}})
+
+        const user = await userModel.create({userName, email, password})
+  
+        res.status(201).send({success: true})
     } catch (err) {
         console.log(err)
-        res.status(500).send({error: err.message})
+        res.status(500).render('signup', {error: err.message})
     }
 }
 
@@ -38,10 +39,10 @@ async function login(req, res){
             {expiresIn: '1h'}
         )
 
-        res.status(200).send({token, User_id: user._id, User_Name: user.userName})
+        res.status(200).send({token, userId: user._id, userName: user.userName}) 
     } catch (err) {
         console.log(err)
-        res.status(500).send({error: err.message})
+        res.status(500).render('login', {error: err.message})
     }
 }
 

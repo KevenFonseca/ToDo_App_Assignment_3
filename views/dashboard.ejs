@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <title>Todo App - Dashboard</title>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="navbar-title">Dashboard</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" fill="currentColor">
+            <path d="M258.9 48C141.92 46.42 46.42 141.92 48 258.9c1.56 112.19 92.91 203.54 205.1 205.1 117 1.6 212.48-93.9 210.88-210.88C462.44 140.91 371.09 49.56 258.9 48zm126.42 327.25a4 4 0 01-6.14-.32 124.27 124.27 0 00-32.35-29.59C321.37 329 289.11 320 256 320s-65.37 9-90.83 25.34a124.24 124.24 0 00-32.35 29.58 4 4 0 01-6.14.32A175.32 175.32 0 0180 259c-1.63-97.31 78.22-178.76 175.57-179S432 158.81 432 256a175.32 175.32 0 01-46.68 119.25z"/><path d="M256 144c-19.72 0-37.55 7.39-50.22 20.82s-19 32-17.57 51.93C191.11 256 221.52 288 256 288s64.83-32 67.79-71.24c1.48-19.74-4.8-38.14-17.68-51.82C293.39 151.44 275.59 144 256 144z"/>
+        </svg>
+    </nav>
+    <div class="main-container">
+        <h2 class="title">Quick Add Task</h2>
+        <form class="create-form-group" action="">
+            <input class="input-field" type="text" name="title" id="title" placeholder="Title" required>
+            <textarea class="input-field" name="description" id="description" placeholder="Description"></textarea>
+            
+            <button class="submit-btn" type="submit">Create Task</button>
+        </form>
+        <div class="task-container">
+            <button class="submit-btn" id='list-button' type="button">View My Tasks</button>
+            <div id='task-list' class="task-list"></div>
+        </div>
+    </div>
+
+    <!-- Edit Task Model -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times</span>
+            <h2 class="edit-title">Edit Task</h2>
+            <form class="edit-form" action="">
+                <input class="input-field" type="text" id="edit-title" placeholder="Title" required>
+                <textarea class="input-field" id="edit-description" placeholder="Description"></textarea>
+                <select class="select-status" id="edit-status">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <button class="submit-btn" type="submit">Save changes</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>

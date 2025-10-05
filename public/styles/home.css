@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+.main-container {
+    width: 100%;
+    height: 100dvh;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.todo-logo {
+    width: 10rem;
+    color: #4CAF50;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+.auth-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 6rem;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+}
+
+.btn-login {
+    color: #fff;
+    background-color: #5BA4E0;
+    border: 2px solid #5BA4E0;
+}
+
+.btn-signup {
+    color: #5BA4E0;
+    background-color: #fff;
+    border: 2px solid #5BA4E0;
+}
+
+.signup-hint {
+    color: #b3b7bb;
+}
+
+@media screen and (min-width: 768px) {
+    .main-container {
+        width: 60%;
+        margin: 0 auto;
+        padding: 6rem;
+        gap: 2rem;
+    }
+
+    .todo-logo {
+        width: 14rem;
+    }
+
+    .subtitle {
+        margin-bottom: 8rem;
+        font-size: 2.4rem;
+    }
+
+    .auth-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3rem;
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 1.5rem 4rem;
+        font-size: 2rem;
+    }
+}

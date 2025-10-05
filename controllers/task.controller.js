@@ -5,7 +5,8 @@ const taskModel = require('../models/task')
 async function createTask(req, res){
     try {
         const task = await taskModel.create({...req.body, user_id: req.user.id})
-        res.status(201).send({message: 'Task created successfully', data: task})
+        // res.status(201).send({message: 'Task created successfully', data: task})
+        res.status(201).send({data: task})
     } catch (err) {
         console.log(err)
         res.status(500).send({error: err.message})
@@ -19,7 +20,7 @@ async function showTasks(req, res){
             user_id: req.user.id,
             status: { $ne: 'deleted'}
         })
-        res.status(200).send({message: 'All Tasks', data: tasks})
+        res.status(200).send({data: tasks})
     } catch (err) {
         console.log(err)
         res.status(500).send({error: err.message})
@@ -35,7 +36,7 @@ async function updateTask(req, res){
         const task = await taskModel.findOneAndUpdate({_id: id, user_id: req.user.id}, req.body, {new: true})
 
         if(!task) return res.status(404).send({message: 'Task not found'})
-        res.status(200).send({message: 'Task updated successfully', data: task})
+        res.status(200).send({data: task})
     } catch (err) {
         console.log(err)
         res.status(500).send({error: err.message})
@@ -54,7 +55,7 @@ async function removeTask(req, res){
 
         if(!task) return res.status(404).send({message: 'Task not found'})
             
-        res.status(200).send({message: 'Task deleted successfully (soft delete)', data: task})
+        res.status(200).send({data: task})
     } catch (err) {
         console.log(err)
         res.status(500).send({error: err.message})

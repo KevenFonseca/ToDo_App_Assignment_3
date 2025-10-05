@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/auth.css">
+    <title>Todo App - Log In</title>
+</head>
+<body>
+    <div class="auth-container">
+        <h1 class="auth-title">Log In</h1>
+        <form class="auth-form" action="" method="">
+            <div class="form-group">
+                <input class="input-field" type="email" name="email" id="email" placeholder="Email" required>
+                <input class="input-field" type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <button class="auth-btn" type="submit">Log In</button>
+        </form>
+        <div class="auth-redirect">
+            <p>Don't have a account?</p>
+            <a class="auth-link" href="/signup">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.auth-form').addEventListener('submit', async function(e) {
+            e.preventDefault()
+            
+            // Collet form values
+            const email = document.getElementById('email').value.trim()
+            const password = document.getElementById('password').value
+
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill all fields')
+                return
+            }
+
+            try {
+                // Send login request
+                const res = await fetch('/auth/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({email, password})
+                })
+
+                const data = await res.json()
+
+                if (res.ok) {
+                    localStorage.setItem('token', data.token) // Salve token to localstorage
+                    window.location.href = '/dashboard' // Redirect to protected page
+                } else {
+                    alert(data.error || 'Login failed')
+                }
+            } catch (err) {
+                console.log(err)
+                alert('Network error, try again later')
+            }
+        })
+    </script>
+</body>
+</html>
