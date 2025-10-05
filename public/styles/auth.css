@@ -79,7 +79,7 @@ body {
 @media screen and (min-width: 768px) {
     .auth-container {
         width: 60%;
-        margin: 10rem auto;
+        margin: 0 auto;
         padding: 6rem;
         gap: 2rem;
     }
